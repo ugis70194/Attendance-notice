@@ -14,19 +14,21 @@ def main():
     idx = -1
     today = datetime.datetime.now(datetime.timezone.utc)
     weekday = today.weekday()
-    if weekday == 6 : weekday = 0
     hour = today.hour
     minute = today.minute
     
     if hour == 23 and 40 <= minute <= 50 : 
         idx = 0
         weekday += 1
+        weekday %= 7
     if hour == 1 and 20 <= minute <= 30 : idx = 1
     if hour == 3 and 0 <= minute <= 10 : idx = 2
     if hour == 5 and 20 <= minute <= 30 : idx = 3
     if hour == 7 and 0 <= minute <= 10 : idx = 4
 
     if idx == -1 : return
+    if weekday == 5 or weekday == 6 :
+        return
 
     lecture = LECTUR[weekday]
     if idx != 0 :
