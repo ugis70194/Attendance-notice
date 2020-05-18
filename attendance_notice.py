@@ -11,10 +11,11 @@ def main():
     session = requests.session()
     header = { "Content-Type" : "application/json" }
     idx = -1
-    weekday = datetime.date.today().weekday()
+    today = datetime.datetime.now(datetime.timezone.utc)
+    weekday = today.weekday()
     if weekday == 6 : weekday = 0
-    hour = datetime.datetime.today().hour
-    minute = datetime.datetime.today().minute
+    hour = today.hour
+    minute = today.minute
     
     if hour == 23 : idx = 0
     if hour == 1 and 20 <= minute <= 30 : idx = 1
@@ -26,6 +27,8 @@ def main():
 
     lecture = LECTUR[weekday]
     if idx != 0 :
+        idx -= 1
+        print(lecture[idx])
         data = json.dumps({"content" : lecture[idx][0] + " 退席確認: " + lecture[idx][1]})
         response = session.post(webhook, headers=header, data=data)
         idx += 1
