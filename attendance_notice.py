@@ -4,7 +4,7 @@ import os
 import datetime
 
 MONDAY_LECTUR = [("技術者倫理", os.environ["engineer_ethics"]) ,("空きコマ", os.environ["empty"]),("計算機アーキテクチャ", os.environ["architecture"]),("基礎制御工学", os.environ["basic_control_engineering"])]
-TUESDAY_LECTUR = [("英語IV", os.environ["empty"]) ,("情報理論", os.environ["information_theory"]),("電気磁気学", os.environ["electromagnetism"]),("情報通信ネットワーク", os.environ["network"])]
+TUESDAY_LECTUR = [("英語IV", os.environ["english"]) ,("情報理論", os.environ["information_theory"]),("電気磁気学", os.environ["electromagnetism"]),("情報通信ネットワーク", os.environ["network"])]
 LECTUR = [MONDAY_LECTUR, TUESDAY_LECTUR]
 
 def main():
